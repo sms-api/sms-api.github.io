@@ -7,7 +7,9 @@
 <link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
-<body><div class="container"><p><div class="toc">
+<body><div class="container"><h1 id="table-of-content">Table of content</h1>
+
+<p><div class="toc">
 <ul>
 <li><a href="#getting-started">Getting started</a><ul>
 <li><a href="#introduction">Introduction</a><ul>
@@ -86,17 +88,29 @@
 <li><a href="#getting-logs-without-any-query-parameter">Getting logs without any query parameter</a></li>
 <li><a href="#getting-logs-with-from-to-and-limit-as-filters">Getting logs with from, to and limit as filters</a></li>
 <li><a href="#getting-logs-with-multiple-bulkids-as-filters">Getting logs with multiple bulkIds as filters</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li><a href="#getting-logs-with-date-range-and-general-status-as-filters">Getting logs with date range and general status as filters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#advanced-sms-methods">Advanced SMS methods</a><ul>
+<li><a href="#fully-featured-textual-message">Fully featured textual message</a><ul>
+<li><a href="#examples-6">Examples</a></li>
+<li><a href="#response-format-6">Response format</a></li>
+</ul>
+</li>
+<li><a href="#get-account-balance">Get account balance</a><ul>
+<li><a href="#response-format-7">Response format</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#receive-sms">Receive SMS</a><ul>
 <li><a href="#pull-received-messages">Pull received messages</a><ul>
-<li><a href="#examples-6">Examples</a></li>
-<li><a href="#response-format-6">Response format</a></li>
+<li><a href="#examples-7">Examples</a></li>
+<li><a href="#response-format-8">Response format</a></li>
 <li><a href="#additional-examples-6">Additional examples</a><ul>
 <li><a href="#getting-unread-received-messages-without-any-query-parameter">Getting unread received messages without any query parameter</a></li>
 <li><a href="#getting-the-initial-two-unread-received-messages">Getting the initial two unread received messages</a></li>
@@ -105,8 +119,8 @@
 </ul>
 </li>
 <li><a href="#received-messages-logs">Received messages logs</a><ul>
-<li><a href="#examples-7">Examples</a></li>
-<li><a href="#response-format-7">Response format</a></li>
+<li><a href="#examples-8">Examples</a></li>
+<li><a href="#response-format-9">Response format</a></li>
 <li><a href="#additional-examples-7">Additional examples</a><ul>
 <li><a href="#getting-logs-without-any-query-parameter-1">Getting logs without any query parameter</a></li>
 <li><a href="#getting-logs-with-keyword-and-to-as-filters">Getting logs with keyword and to as filters</a></li>
@@ -119,8 +133,8 @@
 </li>
 <li><a href="#number-context-1">Number Context</a><ul>
 <li><a href="#synchronous-request">Synchronous request</a><ul>
-<li><a href="#examples-8">Examples</a></li>
-<li><a href="#response-format-8">Response format</a></li>
+<li><a href="#examples-9">Examples</a></li>
+<li><a href="#response-format-10">Response format</a></li>
 <li><a href="#additional-examples-8">Additional examples</a><ul>
 <li><a href="#number-context-lookup-single-phone-number">Number Context lookup - Single phone number</a></li>
 <li><a href="#number-context-lookup-multiple-phone-numbers">Number Context lookup - Multiple phone numbers</a></li>
@@ -128,12 +142,16 @@
 </li>
 </ul>
 </li>
-<li><a href="#asynchronous-request">Asynchronous request</a></li>
-<li><a href="#examples-9">Examples</a><ul>
-<li><a href="#response-format-9">Response format</a></li>
+<li><a href="#asynchronous-request">Asynchronous request</a><ul>
+<li><a href="#examples-10">Examples</a></li>
+<li><a href="#response-format-11">Response format</a></li>
+<li><a href="#additional-examples-9">Additional examples</a><ul>
+<li><a href="#number-context-lookup-single-phone-number-1">Number Context lookup - Single phone number</a></li>
+<li><a href="#number-context-lookup-multiple-phone-numbers-1">Number Context lookup - Multiple phone numbers</a></li>
 </ul>
 </li>
-<li><a href="#number-context-lookup-single-phone-number-1">Number Context lookup - Single phone number</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,6 +181,8 @@
 <p>Submit all requests to the base URL. All the requests are submitted thorough HTTP <code>POST</code> or <code>GET</code> method. </p>
 
 <p><strong>Base URL:</strong> <code>http://107.20.199.106</code> </p>
+
+
 
 <h3 id="content-type-accept-header">Content-Type &amp; Accept header</h3>
 
@@ -310,9 +330,9 @@
 <ul>
 <li><strong>messages</strong> is an array of all SMS messages that were sent in the last request. In our case, it contains only one message</li>
 <li><strong>to</strong> is a phone number which you have sent the SMS message to</li>
-<li>Each message successfully submitted to the platform is uniquely identified with the <strong>messageId</strong>. Furthermore, the Message ID can be used for checking <a>Delivery status</a> or <a>Sent messages logs</a></li>
+<li>Each message successfully submitted to the platform is uniquely identified with the <strong>messageId</strong>. Furthermore, the Message ID can be used for checking Delivery status or Sent messages logs</li>
 <li><strong>smsCount</strong> is the number of parts the message was split into</li>
-<li><strong>status</strong> is the object that further describes the state of sent message. For a full list of available statuses, visit this <a>link</a></li>
+<li><strong>status</strong> is the object that further describes the state of sent message. </li>
 </ul>
 
 
@@ -498,7 +518,7 @@
 
 <p>The opposite to one time delivery reports are <strong>logs</strong> which can be used to see the history for all the messages that you have sent. In the next step of this tutorial, we are going to show you how to get logs using our API.</p>
 
-<p>Additionally, you are able to setup an end-point on your callback server so you can receive a <strong><a>Delivery reports on Notify URL</a></strong>.</p>
+<p>Additionally, you are able to setup an end-point on your callback server so you can receive a <strong>Delivery reports on Notify URL</strong>.</p>
 
 
 
@@ -590,8 +610,7 @@ Unlike delivery reports, these logs can be requested as many times as you want.<
    ]
 </span>}</span></code></pre>
 
-<p>Logs carry similar information as delivery reports, with some added fields. <br>
-If you need detailed information regarding these response fields, check out this <a>page</a>.</p>
+<p>Logs carry similar information as delivery reports, with some added fields.</p>
 
 <blockquote>
   <p><strong>Important:</strong></p>
@@ -1563,7 +1582,7 @@ etc.)</li>
 <tr>
   <td><em>to</em></td>
   <td>String[]</td>
-  <td><strong>Required.</strong> Array of message destination addresses. If you want to send a <a href="#section-single-textual-message-to-one-destination">message to one destination</a>, a single String is supported instead of an Array. Destination addresses must be in international format (Example: <code>41793026727</code>).</td>
+  <td><strong>Required.</strong> Array of message destination addresses. If you want to send a <a href="single-textual-message-to-one-destination">message to one destination</a>, a single String is supported instead of an Array. Destination addresses must be in international format (Example: <code>41793026727</code>).</td>
 </tr>
 <tr>
   <td><em>text</em></td>
@@ -1633,11 +1652,11 @@ etc.)</li>
 <tbody><tr>
   <td><em>bulkId</em></td>
   <td>String</td>
-  <td>The ID that uniquely identifies the request. Bulk ID will be received only when you send a message to <a href="#section-single-textual-message-to-multiple-destinations">more than one destination address</a>.</td>
+  <td>The ID that uniquely identifies the request. Bulk ID will be received only when you send a message to <a href="single-textual-message-to-multiple-destinations">more than one destination address</a>.</td>
 </tr>
 <tr>
   <td><em>messages</em></td>
-  <td><a href="#section-smsresponsedetails">SMSResponseDetails[]</a></td>
+  <td><a href="smsresponsedetails">SMSResponseDetails[]</a></td>
   <td>Array of sent message objects, one object per every message.</td>
 </tr>
 </tbody></table>
@@ -1660,7 +1679,7 @@ etc.)</li>
 </tr>
 <tr>
   <td><em>status</em></td>
-  <td><a href="#section-status">Status</a></td>
+  <td><a href="status">Status</a></td>
   <td>Indicates whether the message is successfully sent, not sent, delivered, not delivered, waiting for delivery or any other possible status.</td>
 </tr>
 <tr>
@@ -2273,7 +2292,7 @@ xhr.send(data);</code></pre>
 <tr>
   <td><em>to</em></td>
   <td>String[]</td>
-  <td><strong>Required.</strong> Array of message destination addresses. If you want to send a <a href="#section-single-textual-message-to-one-destination">message to one destination</a>, a single String is supported instead of an Array. Destination addresses must be in international format (Example: <code>41793026727</code>).</td>
+  <td><strong>Required.</strong> Array of message destination addresses. If you want to send a <a href="single-textual-message-to-one-destination">message to one destination</a>, a single String is supported instead of an Array. Destination addresses must be in international format (Example: <code>41793026727</code>).</td>
 </tr>
 <tr>
   <td><em>text</em></td>
@@ -2368,7 +2387,7 @@ xhr.send(data);</code></pre>
 <tbody><tr>
   <td><em>bulkId</em></td>
   <td>String</td>
-  <td>The ID that uniquely identifies the request. Bulk ID will be received only when you send a message to <a href="#section-multiple-textual-messages-to-multiple-destinations">more than one destination address</a>.</td>
+  <td>The ID that uniquely identifies the request. Bulk ID will be received only when you send a message to <a href="multiple-textual-messages-to-multiple-destinations">more than one destination address</a>.</td>
 </tr>
 <tr>
   <td><em>messages</em></td>
@@ -2937,7 +2956,7 @@ xhr.send(data);</code></pre>
 <tbody><tr>
   <td><em>bulkId</em></td>
   <td>String</td>
-  <td>The ID that uniquely identifies the request. Bulk ID will be received only when you send a message to <a href="#section-single-binary-message-to-multiple-destinations">more than one destination address</a>.</td>
+  <td>The ID that uniquely identifies the request. Bulk ID will be received only when you send a message to <a href="single-binary-message-to-multiple-destinations">more than one destination address</a>.</td>
 </tr>
 <tr>
   <td><em>messages</em></td>
@@ -3751,7 +3770,7 @@ xhr.send(data);</code></pre>
 <tbody><tr>
   <td><em>bulkId</em></td>
   <td>String</td>
-  <td>The ID that uniquely identifies the request. Bulk ID will be received only when you send the message to <a href="#section-multiple-binary-messages-to-multiple-destinations">more than one destination address</a>.</td>
+  <td>The ID that uniquely identifies the request. Bulk ID will be received only when you send the message to <a href="multiple-binary-messages-to-multiple-destinations">more than one destination address</a>.</td>
 </tr>
 <tr>
   <td><em>messages</em></td>
@@ -6409,7 +6428,7 @@ xhr.send(data);</code></pre>
 <tr>
   <td><em>bulkId</em></td>
   <td>String</td>
-  <td>The ID which uniquely identifies the request. Bulk ID will be received only when you send a message to <a href="#section-multiple-textual-messages-to-multiple-destinations">more than one destination address</a>.</td>
+  <td>The ID which uniquely identifies the request. Bulk ID will be received only when you send a message to <a href="multiple-textual-messages-to-multiple-destinations">more than one destination address</a>.</td>
 </tr>
 <tr>
   <td><em>messageId</em></td>
@@ -7116,6 +7135,8 @@ data = res.<span class="hljs-built_in">read</span>()
 print(data.decode(<span class="hljs-string">"utf-8"</span>))</code></pre>
 
 <p><em>Java</em></p>
+
+
 
 <pre class="prettyprint"><code class=" hljs avrasm">HttpResponse&lt;String&gt; response = Unirest<span class="hljs-preprocessor">.get</span>(<span class="hljs-string">"http://107.20.199.106/restapi/account/1/balance"</span>)
   <span class="hljs-preprocessor">.header</span>(<span class="hljs-string">"authorization"</span>, <span class="hljs-string">"Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=="</span>)
@@ -8472,6 +8493,8 @@ data = res.<span class="hljs-built_in">read</span>()
 print(data.decode(<span class="hljs-string">"utf-8"</span>))</code></pre>
 
 <p><em>Java</em></p>
+
+
 
 <pre class="prettyprint"><code class=" hljs avrasm">HttpResponse&lt;String&gt; response = Unirest<span class="hljs-preprocessor">.get</span>(<span class="hljs-string">"http://107.20.199.106/restapi/sms/1/inbox/logs?keyword=NO_KEYWORD"</span>)
   <span class="hljs-preprocessor">.header</span>(<span class="hljs-string">"authorization"</span>, <span class="hljs-string">"Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=="</span>)
@@ -10122,6 +10145,8 @@ print(data.decode(<span class="hljs-comment">"utf-8"</span>))</code></pre>
 
 <p><em>Java</em></p>
 
+
+
 <pre class="prettyprint"><code class=" hljs smalltalk"><span class="hljs-class">HttpResponse</span>&lt;<span class="hljs-class">String</span>&gt; response = <span class="hljs-class">Unirest</span>.post(<span class="hljs-comment">"http://107.20.199.106/restapi/number/1/notify"</span>)
   .header(<span class="hljs-comment">"authorization"</span>, <span class="hljs-comment">"Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=="</span>)
   .header(<span class="hljs-comment">"accept"</span>, <span class="hljs-comment">"application/json"</span>)
@@ -10176,6 +10201,8 @@ xhr.send(data);</code></pre>
 <p><strong>Response</strong></p>
 
 <p><em>JSON</em></p>
+
+
 
 <pre class="prettyprint"><code class=" hljs http"><span class="hljs-status">HTTP/1.1 <span class="hljs-number">200</span> OK</span>
 <span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span>

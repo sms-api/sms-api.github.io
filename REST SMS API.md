@@ -1,3 +1,5 @@
+
+# Table of content
 [TOC]
 
 # Getting started
@@ -143,9 +145,9 @@ Content-Type: application/json
 
 - **messages** is an array of all SMS messages that were sent in the last request. In our case, it contains only one message
 - **to** is a phone number which you have sent the SMS message to
-- Each message successfully submitted to the platform is uniquely identified with the **messageId**. Furthermore, the Message ID can be used for checking [Delivery status](doc:sms-delivery-reports) or [Sent messages logs](doc:message-logs)
+- Each message successfully submitted to the platform is uniquely identified with the **messageId**. Furthermore, the Message ID can be used for checking Delivery status or Sent messages logs
 - **smsCount** is the number of parts the message was split into
-- **status** is the object that further describes the state of sent message. For a full list of available statuses, visit this [link](doc:response-codes)
+- **status** is the object that further describes the state of sent message. 
 
 ## Getting delivery reports
 *Check if your messages were successfully delivered.*
@@ -319,7 +321,7 @@ As you can see, that message was successfully delivered without any error.
 
 The opposite to one time delivery reports are **logs** which can be used to see the history for all the messages that you have sent. In the next step of this tutorial, we are going to show you how to get logs using our API.
 
-Additionally, you are able to setup an end-point on your callback server so you can receive a **[Delivery reports on Notify URL](doc:notify-url)**.
+Additionally, you are able to setup an end-point on your callback server so you can receive a **Delivery reports on Notify URL**.
 
 ## Getting SMS logs
 *Your sent SMS message history.*
@@ -409,7 +411,6 @@ Content-Type: application/json
 ```
 
 Logs carry similar information as delivery reports, with some added fields.
-If you need detailed information regarding these response fields, check out this [page](doc:message-logs).
 
 >**Important:**
 >
@@ -736,7 +737,7 @@ Check the list of response codes for statuses and GSM errors which could be rece
 |Parameter|Type|Description|
 |-|-|-|
 |*from*|String|Represents sender ID and it can be alphanumeric or numeric. *Alphanumeric* sender ID length should be between 3 and 11 characters (Example: `CompanyName`). *Numeric* sender ID length should be between 3 and 14 characters.|
-|*to*|String[]|**Required.** Array of message destination addresses. If you want to send a [message to one destination](#section-single-textual-message-to-one-destination), a single String is supported instead of an Array. Destination addresses must be in international format (Example: `41793026727`).|
+|*to*|String[]|**Required.** Array of message destination addresses. If you want to send a [message to one destination](single-textual-message-to-one-destination), a single String is supported instead of an Array. Destination addresses must be in international format (Example: `41793026727`).|
 |*text*|String|Text of the message that will be sent.|
 
 ### Examples
@@ -787,15 +788,15 @@ If you try to send message without authorization, you will receive an error `401
 
 |Parameter|Type|Description|
 |-|-|-|
-|*bulkId*|String|The ID that uniquely identifies the request. Bulk ID will be received only when you send a message to [more than one destination address](#section-single-textual-message-to-multiple-destinations).|
-|*messages*|[SMSResponseDetails[]](#section-smsresponsedetails)|Array of sent message objects, one object per every message.|
+|*bulkId*|String|The ID that uniquely identifies the request. Bulk ID will be received only when you send a message to [more than one destination address](single-textual-message-to-multiple-destinations).|
+|*messages*|[SMSResponseDetails[]](smsresponsedetails)|Array of sent message objects, one object per every message.|
 
 **SMSResponseDetails**
 
 |Parameter|Type|Description|
 |-|-|-|
 |*to*|String|The message destination address.|
-|*status*|[Status](#section-status)|Indicates whether the message is successfully sent, not sent, delivered, not delivered, waiting for delivery or any other possible status.|
+|*status*|[Status](status)|Indicates whether the message is successfully sent, not sent, delivered, not delivered, waiting for delivery or any other possible status.|
 |*smsCount*|int|The number of sent message segments.|
 |*messageId*|String|The ID that uniquely identifies the message sent.|
 
@@ -1327,7 +1328,7 @@ Content-Type: application/xml
 |Parameter|Type|Description|
 |-|-|-|
 |*from*|String|Represents sender ID and it can be alphanumeric or numeric. *Alphanumeric* sender ID length should be between 3 and 11 characters (Example: `CompanyName`). *Numeric* sender ID length should be between 3 and 14 characters.|
-|*to*|String[]|**Required.** Array of message destination addresses. If you want to send a [message to one destination](#section-single-textual-message-to-one-destination), a single String is supported instead of an Array. Destination addresses must be in international format (Example: `41793026727`).|
+|*to*|String[]|**Required.** Array of message destination addresses. If you want to send a [message to one destination](single-textual-message-to-one-destination), a single String is supported instead of an Array. Destination addresses must be in international format (Example: `41793026727`).|
 |*text*|String|Text of the message that will be sent.|
 
 ### Examples
@@ -1401,7 +1402,7 @@ If you try to send message without authorization, you will receive an error `401
 
 |Parameter|Type|Description|
 |-|-|-|
-|*bulkId*|String|The ID that uniquely identifies the request. Bulk ID will be received only when you send a message to [more than one destination address](#section-multiple-textual-messages-to-multiple-destinations).|
+|*bulkId*|String|The ID that uniquely identifies the request. Bulk ID will be received only when you send a message to [more than one destination address](multiple-textual-messages-to-multiple-destinations).|
 |*messages*|SMSResponseDetails[]|Array of sent message objects, one object per every message.|
 
 **SMSResponseDetails**
@@ -1843,7 +1844,7 @@ If you try to send message without authorization, you will receive an error `401
 
 |Parameter|Type|Description|
 |-|-|-|
-|*bulkId*|String|The ID that uniquely identifies the request. Bulk ID will be received only when you send a message to [more than one destination address](#section-single-binary-message-to-multiple-destinations).|
+|*bulkId*|String|The ID that uniquely identifies the request. Bulk ID will be received only when you send a message to [more than one destination address](single-binary-message-to-multiple-destinations).|
 |*messages*|SMSResponseDetails[]|Array of sent message objects, one object per every message.|
 
 **SMSResponseDetails**
@@ -2517,7 +2518,7 @@ If you try to send messages without authorization, you will receive an error `40
 
 |Parameter|Type|Description|
 |-|-|-|
-|*bulkId*|String|The ID that uniquely identifies the request. Bulk ID will be received only when you send the message to [more than one destination address](#section-multiple-binary-messages-to-multiple-destinations).|
+|*bulkId*|String|The ID that uniquely identifies the request. Bulk ID will be received only when you send the message to [more than one destination address](multiple-binary-messages-to-multiple-destinations).|
 |*messages*|SMSResponseDetails[]|Array of sent message objects, one object per every message.|
 
 **SMSResponseDetails**
@@ -4698,7 +4699,7 @@ Content-Type: application/xml
 |*from*|String|Represents a sender ID which can be alphanumeric or numeric. *Alphanumeric* sender ID length should be between 3 and 11 characters (Example: `CompanyName`). *Numeric* sender ID length should be between 3 and 14 characters.|
 |*to*|String[]|**Required.** Array of message destination addresses. If you want to send a message to one destination, a single String is supported instead of an Array. Destination addresses must be in international format (Example: `41793026727`).|
 |*text*|String|Text of the message that will be sent.|
-|*bulkId*|String|The ID which uniquely identifies the request. Bulk ID will be received only when you send a message to [more than one destination address](#section-multiple-textual-messages-to-multiple-destinations).|
+|*bulkId*|String|The ID which uniquely identifies the request. Bulk ID will be received only when you send a message to [more than one destination address](multiple-textual-messages-to-multiple-destinations).|
 |*messageId*|String|The ID that uniquely identifies the message sent.|
 |*flash*|Boolean|Can be `true` or `false`. If the value is set to `true`, a flash SMS will be sent. Otherwise, a normal SMS will be sent. The default value is `false`.|
 |*transliteration*|String|Conversion of a message text from one script to another. Possible values: `"TURKISH"`, `"GREEK"`, `"CYRILLIC"`, `"CENTRAL_EUROPEAN"`.|
