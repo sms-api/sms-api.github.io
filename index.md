@@ -18,3 +18,4 @@ Explore SMS user guides and examples in various programing languages. **[Check t
  - SMS API **[PDF tutorial](/REST%20SMS%20API.pdf)**
  - SMS API **[Word tutorial](/REST%20SMS%20API.docx)**
  - SMS API **[Markdown tutorial](/REST%20SMS%20API.md)**
+ - SMPP API **[Word tutorial](/SMPP%20API.docx)**
