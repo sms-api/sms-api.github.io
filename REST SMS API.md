@@ -4709,7 +4709,7 @@ Content-Type: application/xml
 |*notifyUrl*|String|The URL on your call back server on which the Delivery report will be sent.|
 |*notifyContentType*|String|Preferred Delivery report content type. Can be `application/json` or `application/xml`.|
 |*callbackData*|String|Additional client's data that will be sent on the notifyUrl.|
-|*validityPeriod*|Integer|The message validity period in milliseconds. When the period expires, it will not be allowed for the message to be sent. Validity period longer than 48h is not supported (in this case, it will be automatically set to 48h).|
+|*validityPeriod*|Integer|The message validity period in minutes. When the period expires, it will not be allowed for the message to be sent. Validity period longer than 48h is not supported (in this case, it will be automatically set to 48h).|
 |*sendAt*|DateTime|Date and time when the message is to be sent. Used for scheduled SMS (SMS not sent immediately, but at scheduled time).|
 
 ### Examples
@@ -4747,7 +4747,7 @@ Content-Type: application/json
          "notifyUrl":"http://www.example.com/sms/advanced",
          "notifyContentType":"application/json",
          "callbackData":"DLR callback data",
-         "validityPeriod": 86400000
+         "validityPeriod": 720
       },
       {
          "from":"41793026700",
@@ -4793,7 +4793,7 @@ Content-Type: application/xml
     <notifyUrl>http://www.example.com/sms/advanced</notifyUrl>
     <notifyContentType>application/json</notifyContentType>
     <callbackData>DLR callback data</callbackData>
-    <validityPeriod>86400000</validityPeriod>
+    <validityPeriod>720</validityPeriod>
   </messages>
   <messages>
     <from>41793026700</from>
@@ -4838,7 +4838,7 @@ curl -X POST \
          "notifyUrl":"http://www.example.com/sms/advanced",
          "notifyContentType":"application/json",
          "callbackData":"DLR callback data",
-         "validityPeriod": 86400000
+         "validityPeriod": 720
       },
       {
          "from":"41793026700",
@@ -4894,7 +4894,7 @@ $request->setBody('{
          "notifyUrl":"http://www.example.com/sms/advanced",
          "notifyContentType":"application/json",
          "callbackData":"DLR callback data",
-         "validityPeriod": 86400000
+         "validityPeriod": 720
       },
       {
          "from":"41793026700",
@@ -4935,7 +4935,7 @@ request["content-type"] = 'application/json'
 request["authorization"] = 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=='
 request["accept"] = 'application/json'
 
-request.body = "{\"bulkId\":\"BULK-ID-123-xyz\", \"messages\":[{\"from\":\"InfoSMS\", \"destinations\":[{\"to\":\"41793026727\", \"messageId\":\"MESSAGE-ID-123-xyz\"}, {\"to\":\"41793026731\"}], \"text\":\"Artık Ulusal Dil Tanımlayıcısı ile Türkçe karakterli smslerinizi rahatlıkla iletebilirsiniz.\", \"flash\":false, \"language\":{\"languageCode\":\"TR\", \"singleShift\":true, \"lockingShift\":false}, \"transliteration\":\"TURKISH\", \"notifyUrl\":\"http://www.example.com/sms/advanced\", \"notifyContentType\":\"application/json\", \"callbackData\":\"DLR callback data\", \"validityPeriod\": 86400000}, {\"from\":\"41793026700\", \"destinations\":[{\"to\":\"41793026785\"}], \"text\":\"A long time ago, in a galaxy far, far away... It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.\",\n  \t\t\t \"sendAt\":\"2015-07-07T17:00:00.000+01:00\"}]}"
+request.body = "{\"bulkId\":\"BULK-ID-123-xyz\", \"messages\":[{\"from\":\"InfoSMS\", \"destinations\":[{\"to\":\"41793026727\", \"messageId\":\"MESSAGE-ID-123-xyz\"}, {\"to\":\"41793026731\"}], \"text\":\"Artık Ulusal Dil Tanımlayıcısı ile Türkçe karakterli smslerinizi rahatlıkla iletebilirsiniz.\", \"flash\":false, \"language\":{\"languageCode\":\"TR\", \"singleShift\":true, \"lockingShift\":false}, \"transliteration\":\"TURKISH\", \"notifyUrl\":\"http://www.example.com/sms/advanced\", \"notifyContentType\":\"application/json\", \"callbackData\":\"DLR callback data\", \"validityPeriod\": 720}, {\"from\":\"41793026700\", \"destinations\":[{\"to\":\"41793026785\"}], \"text\":\"A long time ago, in a galaxy far, far away... It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.\",\n  \t\t\t \"sendAt\":\"2015-07-07T17:00:00.000+01:00\"}]}"
 
 response = http.request(request)
 puts response.read_body
@@ -4948,7 +4948,7 @@ import http.client
 
 conn = http.client.httpConnection("107.20.199.106")
 
-payload = "{\"bulkId\":\"BULK-ID-123-xyz\", \"messages\":[{\"from\":\"InfoSMS\", \"destinations\":[{\"to\":\"41793026727\", \"messageId\":\"MESSAGE-ID-123-xyz\"}, {\"to\":\"41793026731\"}], \"text\":\"Artık Ulusal Dil Tanımlayıcısı ile Türkçe karakterli smslerinizi rahatlıkla iletebilirsiniz.\", \"flash\":false, \"language\":{\"languageCode\":\"TR\", \"singleShift\":true, \"lockingShift\":false}, \"transliteration\":\"TURKISH\", \"notifyUrl\":\"http://www.example.com/sms/advanced\", \"notifyContentType\":\"application/json\", \"callbackData\":\"DLR callback data\", \"validityPeriod\": 86400000}, {\"from\":\"41793026700\", \"destinations\":[{\"to\":\"41793026785\"}], \"text\":\"A long time ago, in a galaxy far, far away... It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.\",\n  \t\t\t \"sendAt\":\"2015-07-07T17:00:00.000+01:00\"}]}"
+payload = "{\"bulkId\":\"BULK-ID-123-xyz\", \"messages\":[{\"from\":\"InfoSMS\", \"destinations\":[{\"to\":\"41793026727\", \"messageId\":\"MESSAGE-ID-123-xyz\"}, {\"to\":\"41793026731\"}], \"text\":\"Artık Ulusal Dil Tanımlayıcısı ile Türkçe karakterli smslerinizi rahatlıkla iletebilirsiniz.\", \"flash\":false, \"language\":{\"languageCode\":\"TR\", \"singleShift\":true, \"lockingShift\":false}, \"transliteration\":\"TURKISH\", \"notifyUrl\":\"http://www.example.com/sms/advanced\", \"notifyContentType\":\"application/json\", \"callbackData\":\"DLR callback data\", \"validityPeriod\": 720}, {\"from\":\"41793026700\", \"destinations\":[{\"to\":\"41793026785\"}], \"text\":\"A long time ago, in a galaxy far, far away... It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.\",\n  \t\t\t \"sendAt\":\"2015-07-07T17:00:00.000+01:00\"}]}"
 
 headers = {
     'content-type': "application/json",
@@ -4971,7 +4971,7 @@ HttpResponse<String> response = Unirest.post("http://107.20.199.106/restapi/sms/
   .header("content-type", "application/json")
   .header("authorization", "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==")
   .header("accept", "application/json")
-  .body("{\"bulkId\":\"BULK-ID-123-xyz\", \"messages\":[{\"from\":\"InfoSMS\", \"destinations\":[{\"to\":\"41793026727\", \"messageId\":\"MESSAGE-ID-123-xyz\"}, {\"to\":\"41793026731\"}], \"text\":\"Artık Ulusal Dil Tanımlayıcısı ile Türkçe karakterli smslerinizi rahatlıkla iletebilirsiniz.\", \"flash\":false, \"language\":{\"languageCode\":\"TR\", \"singleShift\":true, \"lockingShift\":false}, \"transliteration\":\"TURKISH\", \"notifyUrl\":\"http://www.example.com/sms/advanced\", \"notifyContentType\":\"application/json\", \"callbackData\":\"DLR callback data\", \"validityPeriod\": 86400000}, {\"from\":\"41793026700\", \"destinations\":[{\"to\":\"41793026785\"}], \"text\":\"A long time ago, in a galaxy far, far away... It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.\",\n  \t\t\t \"sendAt\":\"2015-07-07T17:00:00.000+01:00\"}]}")
+  .body("{\"bulkId\":\"BULK-ID-123-xyz\", \"messages\":[{\"from\":\"InfoSMS\", \"destinations\":[{\"to\":\"41793026727\", \"messageId\":\"MESSAGE-ID-123-xyz\"}, {\"to\":\"41793026731\"}], \"text\":\"Artık Ulusal Dil Tanımlayıcısı ile Türkçe karakterli smslerinizi rahatlıkla iletebilirsiniz.\", \"flash\":false, \"language\":{\"languageCode\":\"TR\", \"singleShift\":true, \"lockingShift\":false}, \"transliteration\":\"TURKISH\", \"notifyUrl\":\"http://www.example.com/sms/advanced\", \"notifyContentType\":\"application/json\", \"callbackData\":\"DLR callback data\", \"validityPeriod\": 720}, {\"from\":\"41793026700\", \"destinations\":[{\"to\":\"41793026785\"}], \"text\":\"A long time ago, in a galaxy far, far away... It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.\",\n  \t\t\t \"sendAt\":\"2015-07-07T17:00:00.000+01:00\"}]}")
   .asString();
 ```
   
@@ -4983,7 +4983,7 @@ var request = new RestRequest(Method.POST);
 request.AddHeader("accept", "application/json");
 request.AddHeader("authorization", "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==");
 request.AddHeader("content-type", "application/json");
-request.AddParameter("application/json", "{\"bulkId\":\"BULK-ID-123-xyz\", \"messages\":[{\"from\":\"InfoSMS\", \"destinations\":[{\"to\":\"41793026727\", \"messageId\":\"MESSAGE-ID-123-xyz\"}, {\"to\":\"41793026731\"}], \"text\":\"Artık Ulusal Dil Tanımlayıcısı ile Türkçe karakterli smslerinizi rahatlıkla iletebilirsiniz.\", \"flash\":false, \"language\":{\"languageCode\":\"TR\", \"singleShift\":true, \"lockingShift\":false}, \"transliteration\":\"TURKISH\", \"notifyUrl\":\"http://www.example.com/sms/advanced\", \"notifyContentType\":\"application/json\", \"callbackData\":\"DLR callback data\", \"validityPeriod\": 86400000}, {\"from\":\"41793026700\", \"destinations\":[{\"to\":\"41793026785\"}], \"text\":\"A long time ago, in a galaxy far, far away... It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.\",\n  \t\t\t \"sendAt\":\"2015-07-07T17:00:00.000+01:00\"}]}", ParameterType.RequestBody);
+request.AddParameter("application/json", "{\"bulkId\":\"BULK-ID-123-xyz\", \"messages\":[{\"from\":\"InfoSMS\", \"destinations\":[{\"to\":\"41793026727\", \"messageId\":\"MESSAGE-ID-123-xyz\"}, {\"to\":\"41793026731\"}], \"text\":\"Artık Ulusal Dil Tanımlayıcısı ile Türkçe karakterli smslerinizi rahatlıkla iletebilirsiniz.\", \"flash\":false, \"language\":{\"languageCode\":\"TR\", \"singleShift\":true, \"lockingShift\":false}, \"transliteration\":\"TURKISH\", \"notifyUrl\":\"http://www.example.com/sms/advanced\", \"notifyContentType\":\"application/json\", \"callbackData\":\"DLR callback data\", \"validityPeriod\": 720}, {\"from\":\"41793026700\", \"destinations\":[{\"to\":\"41793026785\"}], \"text\":\"A long time ago, in a galaxy far, far away... It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.\",\n  \t\t\t \"sendAt\":\"2015-07-07T17:00:00.000+01:00\"}]}", ParameterType.RequestBody);
 IRestResponse response = client.Execute(request);
 ```
 
@@ -5015,7 +5015,7 @@ var data = JSON.stringify({
       "notifyUrl": "http://www.example.com/sms/advanced",
       "notifyContentType": "application/json",
       "callbackData": "DLR callback data",
-      "validityPeriod": 86400000
+      "validityPeriod": 720
     },
     {
       "from": "41793026700",
